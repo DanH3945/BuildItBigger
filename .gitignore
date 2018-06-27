@@ -6,3 +6,4 @@
 .DS_Store
 /build
 /captures
+/backend/build/dev-appserver-out/dev_appserver.out
