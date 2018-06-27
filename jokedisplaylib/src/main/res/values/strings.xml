@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">jokedisplaylib</string>
+    <string name="joke_intent_load_failure">Couldn\'t Load Joke String</string>
+</resources>
