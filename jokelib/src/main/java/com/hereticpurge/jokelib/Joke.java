@@ -63,10 +63,10 @@ public class Joke {
         return joke;
     }
 
-    private static String readJsonString(Reader rd) throws IOException{
+    private static String readJsonString(Reader reader) throws IOException{
         StringBuilder sb = new StringBuilder();
         int charInt;
-        while ((charInt = rd.read()) != -1){
+        while ((charInt = reader.read()) != -1){
             sb.append((char) charInt);
         }
         return sb.toString();
