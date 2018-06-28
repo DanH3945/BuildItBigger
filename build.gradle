@@ -20,3 +20,13 @@ allprojects {
         jcenter()
     }
 }
+task connectedTestsWithGCE {
+    dependsOn('backend:appengineStart', 'doTests')
+    finalizedBy('backend:appengineStop')
+}
+
+task doTests {
+    dependsOn('app:connectedCheck')
+    shouldRunAfter('backend:appengineStart')
+}
+
