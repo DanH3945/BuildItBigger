@@ -8,16 +8,15 @@ import android.widget.Toast;
 
 public class JokeActivity extends AppCompatActivity {
 
-    public static final String JOKE_ID = "jokeIntentId";
+    private static final String JOKE_ID = "jokeIntentId";
     private String mJoke = null;
-    private TextView mTextView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_joke);
 
-        mTextView = findViewById(R.id.joke_text_view);
+        TextView mTextView = findViewById(R.id.joke_text_view);
 
         try {
             if (getIntent().hasExtra(JOKE_ID)){

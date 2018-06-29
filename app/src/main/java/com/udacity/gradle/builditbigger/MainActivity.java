@@ -65,14 +65,14 @@ public class MainActivity extends AppCompatActivity {
         new EndpointsAsyncTask().execute(this);
     }
 
-    public void dispatchJokeIntent(String string){
+    private void dispatchJokeIntent(String string) {
         Intent intent = new Intent(this, JokeActivity.class);
         intent.putExtra(JOKE_ID, string);
         startActivity(intent);
     }
 
-    public void endpointsCallback(String string){
-        if (mSimpleIdlingResource != null){
+    public void endpointsCallback(String string) {
+        if (mSimpleIdlingResource != null) {
             testReturnString = string;
             mSimpleIdlingResource.setIdleState(true);
         }
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @VisibleForTesting
-    public synchronized String getEndpointsReturn(){
+    public synchronized String getEndpointsReturn() {
         return testReturnString;
     }
 }

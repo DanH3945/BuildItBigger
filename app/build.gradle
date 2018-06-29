@@ -58,11 +58,16 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':jokelib')
+    implementation project(path: ':jokedisplaylib')
     endpointsServer project(path: ':backend', configuration: 'endpoints')
+
+    // regular implementations
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.google.api-client:google-api-client:1.23.0'
     implementation 'com.google.http-client:google-http-client-android:1.23.0'
     implementation 'com.google.code.findbugs:jsr305:3.0.1'
+    implementation 'com.google.appengine:appengine-api-1.0-sdk:1.9.56'
 
     // Conflicting implementations that needed individual imports.
     implementation 'com.android.support:animated-vector-drawable:27.1.1'
@@ -73,7 +78,7 @@ dependencies {
     // Unnecessary imports for the free version
     freeImplementation 'com.google.android.gms:play-services-ads:15.0.1'
 
-    // Test implementations
+    // Test androidTestImplementations
     implementation 'com.android.support.test.espresso:espresso-idling-resource:3.0.2'
     androidTestImplementation 'com.android.support:support-annotations:27.1.1'
     androidTestImplementation 'junit:junit:4.12'
@@ -86,8 +91,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     }) */
 
+    // testImplementations
     testImplementation 'junit:junit:4.12'
-    implementation project(path: ':jokelib')
-    implementation project(path: ':jokedisplaylib')
-    implementation 'com.google.appengine:appengine-api-1.0-sdk:1.9.56'
 }

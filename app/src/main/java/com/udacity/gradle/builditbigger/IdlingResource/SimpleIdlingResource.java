@@ -3,6 +3,7 @@ package com.udacity.gradle.builditbigger.IdlingResource;
 import android.support.annotation.Nullable;
 
 import java.util.concurrent.atomic.AtomicBoolean;
+
 import android.support.test.espresso.IdlingResource;
 
 public class SimpleIdlingResource implements IdlingResource {
