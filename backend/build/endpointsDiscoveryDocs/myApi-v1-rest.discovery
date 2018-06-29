@@ -44,17 +44,7 @@
   "tellJoke": {
    "httpMethod": "POST",
    "id": "myApi.tellJoke",
-   "parameterOrder": [
-    "joke"
-   ],
-   "parameters": {
-    "joke": {
-     "location": "path",
-     "required": true,
-     "type": "string"
-    }
-   },
-   "path": "tellJoke/{joke}",
+   "path": "tellJoke",
    "response": {
     "$ref": "MyBean"
    },
