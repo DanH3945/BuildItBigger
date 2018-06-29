@@ -71,7 +71,7 @@ dependencies {
     implementation 'com.android.support:support-v4:27.1.1'
 
     // Unnecessary imports for the free version
-    implementation 'com.google.android.gms:play-services-ads:15.0.1'
+    freeImplementation 'com.google.android.gms:play-services-ads:15.0.1'
 
     // Test implementations
     implementation 'com.android.support.test.espresso:espresso-idling-resource:3.0.2'

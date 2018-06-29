@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import com.hereticpurge.jokedisplaylib.JokeActivity;
 import com.udacity.gradle.builditbigger.IdlingResource.SimpleIdlingResource;
@@ -18,6 +19,8 @@ import com.udacity.gradle.builditbigger.IdlingResource.SimpleIdlingResource;
 public class MainActivity extends AppCompatActivity {
 
     private static final String JOKE_ID = "jokeIntentId";
+
+    private ProgressBar mProgressBar;
 
     @VisibleForTesting
     private String testReturnString;
@@ -29,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mProgressBar = findViewById(R.id.progressBar);
 
     }
 
@@ -56,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
+        mProgressBar.setVisibility(View.VISIBLE);
         new EndpointsAsyncTask().execute(this);
     }
 
@@ -70,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
             testReturnString = string;
             mSimpleIdlingResource.setIdleState(true);
         }
+        mProgressBar.setVisibility(View.GONE);
         dispatchJokeIntent(string);
     }
 
