@@ -33,6 +33,8 @@ public class JokeActivity extends AppCompatActivity {
             mTextView.setText(mJoke);
         }
 
+
+
     }
 
     @Override

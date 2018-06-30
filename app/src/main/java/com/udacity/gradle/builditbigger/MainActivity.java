@@ -22,9 +22,6 @@ public class MainActivity extends AppCompatActivity {
 
     private ProgressBar mProgressBar;
 
-    @VisibleForTesting
-    private String testReturnString;
-
     @Nullable
     private SimpleIdlingResource mSimpleIdlingResource;
 
@@ -61,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
+        if (mSimpleIdlingResource != null) {
+            mSimpleIdlingResource.setIdleState(!mSimpleIdlingResource.isIdleNow());
+        }
+
         mProgressBar.setVisibility(View.VISIBLE);
         new EndpointsAsyncTask().execute(this);
     }
@@ -72,11 +73,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void endpointsCallback(String string) {
-        if (mSimpleIdlingResource != null) {
-            testReturnString = string;
-            mSimpleIdlingResource.setIdleState(true);
-        }
         mProgressBar.setVisibility(View.GONE);
+        if (mSimpleIdlingResource != null) {
+            mSimpleIdlingResource.setIdleState(!mSimpleIdlingResource.isIdleNow());
+        }
         dispatchJokeIntent(string);
     }
 
@@ -87,11 +87,6 @@ public class MainActivity extends AppCompatActivity {
             mSimpleIdlingResource = new SimpleIdlingResource();
         }
         return mSimpleIdlingResource;
-    }
-
-    @VisibleForTesting
-    public synchronized String getEndpointsReturn() {
-        return testReturnString;
     }
 }
 
